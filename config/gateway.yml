@@ -1,0 +1,14 @@
+server:
+  port: 9090
+
+zuul:
+  prefix: /api
+  routes:
+    users:
+      path: /users/**
+      url: http://localhost:8080
+    discovery:
+      path: /discovery/**
+      url: http://localhost:8761
+
+
