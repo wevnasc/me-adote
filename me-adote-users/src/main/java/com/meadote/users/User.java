@@ -2,7 +2,7 @@ package com.meadote.users;
 
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class User {
@@ -15,6 +15,17 @@ public class User {
     private String email;
     private String uri;
     private String password;
+
+    @OneToMany
+    private List<Pet> pets;
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 
     public String getName() {
         return name;
