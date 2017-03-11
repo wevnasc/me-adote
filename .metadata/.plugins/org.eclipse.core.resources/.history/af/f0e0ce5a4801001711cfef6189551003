@@ -1,0 +1,10 @@
+package com.meadote.pets;
+
+public class Pets {
+	
+	private long id;
+	private String name;
+	
+	
+
+}

@@ -1,0 +1,10 @@
+package com.meadote.pets;
+
+public class PetsApplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
