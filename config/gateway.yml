@@ -4,13 +4,14 @@ server:
 zuul:
   prefix: /api
   routes:
-	owners:
-	  path: /owners/**
-	  serviceId: owners/
-	  stripPrefix: false
-	pets:
-	  path: pets/**
-	  serviceId: pets/
-	  stripPrefix: false
+      owners:
+          path: /owners/**
+          serviceId: owners/
+          stripPrefix: false
+
+      pets:
+         path: pets/**
+         serviceId: pets/
+         stripPrefix: false
 
 
