@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.meadote.adoption.exception.OwnerNotFoundException;
+import com.meadote.adoption.exception.PetNotFoundException;
 import com.meadote.adoption.owner.Owner;
-import com.meadote.adoption.owner.OwnerNotFoundException;
 import com.meadote.adoption.owner.OwnerRepository;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@RequestMapping(path = "owners/{ownerId}/pets")
+@RequestMapping("owners/{ownerId}/pets")
 public class PetController {
 
 	private final PetRepository petRepository;
@@ -43,11 +44,10 @@ public class PetController {
 	}
 
 	@RequestMapping(path = "/{petId}", method = RequestMethod.GET)
-	public String findOne(@PathVariable long ownerId, @PathVariable long petId) {
-//		this.validateOwner(ownerId);
-//		Pet pet = petRepository.findOne(petId);
-//		return getPetResource(ownerId, pet);
-		return "teste";
+	public Pet findOne(@PathVariable long ownerId, @PathVariable long petId) {
+		this.validateOwner(ownerId);
+		this.validatePet(petId);
+		return petRepository.findOne(petId);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -63,17 +63,11 @@ public class PetController {
 	@RequestMapping(path = "/{petId}", method = RequestMethod.PUT)
 	public Resource<Pet> update(@PathVariable long ownerId, @PathVariable long petId, @RequestBody Pet input) {
 		this.validateOwner(ownerId);
+		this.validatePet(petId);
 		Pet pet = petRepository.findOne(petId);
-		pet.setAge(input.getAge());
-		pet.setBreed(input.getBreed());
-		pet.setGender(input.getGender());
-		pet.setName(input.getName());
-		pet.setNotes(input.getNotes());
-		pet.setWeight(input.getWeight());
-		pet.setHeight(input.getHeight());
-		pet.setAdopted(input.isAdopted());
-		petRepository.save(pet);
-		return getPetResource(ownerId, pet);
+		input.setId(pet.getId());
+		petRepository.save(input);
+		return getPetResource(ownerId, input);
 
 	}
 
@@ -81,11 +75,11 @@ public class PetController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable long ownerId, @PathVariable long petId) {
 		this.validateOwner(ownerId);
+		this.validatePet(petId);
 		petRepository.delete(petId);
 	}
 
 	private Resource<Pet> getPetResource(long ownerId, Pet pet) {
-		this.validateOwner(ownerId);
 		Resource<Pet> petResource = new Resource<Pet>(pet);
 		petResource.add(linkTo(methodOn(PetController.class).findOne(ownerId, pet.getId())).withSelfRel());
 		return petResource;
@@ -95,4 +89,8 @@ public class PetController {
 		this.ownerRepository.findById(id).orElseThrow(() -> new OwnerNotFoundException(id));
 	}
 
+	private void validatePet(long id) {
+		this.petRepository.findById(id).orElseThrow(() -> new PetNotFoundException(id));
+	}
+	
 }
