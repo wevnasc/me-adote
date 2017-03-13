@@ -14,5 +14,5 @@ zuul:
          stripPrefix: false
       owners:
           serviceId: owners
-          path: /api/owners/*
+          path: /api/owners/**
           stripPrefix: false
