@@ -4,7 +4,15 @@ server:
 zuul:
   prefix: /api
   routes:
-      owners:
-          stripPrefix: false
+      users:
+        serviceId: pets
+        path: /api/owners/*/pets/**
+        stripPrefix: false
       pets:
+         serviceId:pets
+         path: /api/foo/**
          stripPrefix: false
+      owners:
+          serviceId: owners
+          path: /api/owners/*
+          stripPrefix: false
