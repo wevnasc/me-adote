@@ -1,0 +1,5 @@
+package com.meadote.adoption.pet;
+
+public class PetResource {
+
+}

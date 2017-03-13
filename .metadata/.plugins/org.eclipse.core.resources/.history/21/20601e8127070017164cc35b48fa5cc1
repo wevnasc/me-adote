@@ -1,0 +1,21 @@
+package com.meadote.adoption.pet;
+
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class PetResource extends ResourceSupport {
+
+	private final Pet pet;
+
+	@JsonCreator
+	public PetResource(@JsonProperty("pet") Pet pet) {
+		this.pet = pet;
+	}
+
+	public Pet getPet() {
+		return this.pet;
+	}
+
+}

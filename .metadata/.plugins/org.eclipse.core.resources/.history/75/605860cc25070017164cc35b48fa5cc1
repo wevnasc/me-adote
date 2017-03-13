@@ -1,0 +1,13 @@
+package com.meadote.adoption.owner;
+
+public class OwnerNotFoundException extends RuntimeException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public OwnerNotFoundException(long id) {
+		super("could not find user '" + id + "'.");
+	}
+}

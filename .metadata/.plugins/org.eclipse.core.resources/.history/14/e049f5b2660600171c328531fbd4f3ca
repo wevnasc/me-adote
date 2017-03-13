@@ -1,0 +1,54 @@
+package com.meadote.adoption.owner;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.meadote.adoption.pet.PetController;
+
+@RestController
+@RequestMapping("owners")
+public class OwnerController {
+	
+	private final OwnerRepository ownerRepository;
+	
+
+	@Autowired
+	public OwnerController(OwnerRepository ownerRepository) {
+		this.ownerRepository = ownerRepository;
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public Collection<Resource<Owner>> findAll() {
+		return ownerRepository.findAll()
+			.stream()
+			.map(owner -> {
+				return getResourceOwner(owner);
+			})
+			.collect(Collectors.toList());
+	}
+	
+	@RequestMapping(path = "/{ownerId}", method = RequestMethod.GET)
+	public Resource<Owner> findOne(@PathVariable("ownerId") long id) {
+		Owner owner = ownerRepository.findOne(id);
+		return getResourceOwner(owner);
+	}
+	
+	public Resource<Owner> getResourceOwner(Owner owner) {
+		
+		Resource<Owner> ownerResource = new Resource<Owner>(owner);
+		ownerResource.add(linkTo(methodOn(OwnerController.class).findOne(owner.getId())).withSelfRel());
+		ownerResource.add(linkTo(methodOn(PetController.class).findAll(owner.getId())).withRel("pets"));
+		return ownerResource;
+	}
+	
+}

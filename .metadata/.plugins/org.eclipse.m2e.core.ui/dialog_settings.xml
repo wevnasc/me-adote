@@ -2,13 +2,10 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.meadote.pets"/>
 		</list>
 		<list key="name">
-			<item value="me-adote-pets"/>
 		</list>
 		<list key="artifactId">
-			<item value="me-adote-pets"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -34,7 +31,24 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="/home/weverson/Code/me-adote/me-adote-adoption"/>
+			<item value="/home/weverson/Code/me-adote/me-adote-gateway"/>
+			<item value="/home/weverson/Code/me-adote/me-adote-discovery"/>
+			<item value="/home/weverson/Code/me-adote/me-adote-config"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -46,6 +60,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/weverson/Code/me-adote/me-adote-config"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

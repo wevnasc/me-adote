@@ -3,8 +3,5 @@ server:
 
 zuul:
   prefix: /api
-  routes:
-    users:
-      path: /users/**
 
 
