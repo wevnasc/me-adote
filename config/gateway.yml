@@ -3,5 +3,8 @@ server:
 
 zuul:
   prefix: /api
-
-
+  routes:
+      owners:
+          stripPrefix: false
+      pets:
+         stripPrefix: false
