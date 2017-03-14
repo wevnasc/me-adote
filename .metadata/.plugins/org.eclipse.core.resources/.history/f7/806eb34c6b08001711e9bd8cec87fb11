@@ -1,0 +1,5 @@
+package com.meadote.comments;
+
+public interface CommentRepository {
+
+}
