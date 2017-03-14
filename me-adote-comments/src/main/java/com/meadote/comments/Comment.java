@@ -32,11 +32,11 @@ public class Comment {
 	private long posted;
 	
 	public Comment(long id, long petId, long ownerId, String comment) {
+		this();
 		this.id = id;
 		this.petId = petId;
 		this.ownerId = ownerId;
 		this.comment = comment;
-		this.posted = new Date().getTime();
 	}
 
 	public long getId() {
@@ -50,6 +50,9 @@ public class Comment {
 	public long getPosted() {
 		return posted;
 	}
-		
+	
+	Comment() {
+		this.posted = new Date().getTime();
+	}
 	
 }

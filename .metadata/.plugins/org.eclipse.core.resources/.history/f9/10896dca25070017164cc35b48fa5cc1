@@ -1,8 +1,0 @@
-package com.meadote.adoption.owner;
-
-public class OwnerNotFoundException extends RuntimeException {
-
-	public UserNotFoundException(long id) {
-		super("could not find user '" + id + "'.");
-	}
-}

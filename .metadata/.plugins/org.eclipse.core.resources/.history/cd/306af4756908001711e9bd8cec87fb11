@@ -1,9 +1,0 @@
-package com.meadote.pets;
-
-import org.springframework.data.repository.PagingAndSortingRepository;
-
-public interface PetRepository extends PagingAndSortingRepository<Pet, Long> {
-	
-	Pet findByOwnerId(long OwnerId);
-	
-}

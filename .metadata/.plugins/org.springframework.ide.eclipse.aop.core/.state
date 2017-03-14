@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<aop-reference-model>
-<aop-project name="me-adote-adoption"/>
-<aop-project name="me-adote-config"/>
-<aop-project name="me-adote-discovery"/>
-<aop-project name="me-adote-gateway"/>
-</aop-reference-model>

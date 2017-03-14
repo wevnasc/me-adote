@@ -7,12 +7,8 @@ import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Pet {
-
-	public Pet(){}
 	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,8 +25,7 @@ public class Pet {
     
     @NotNull
     @Valid
-    @JsonIgnore
-    private Long OwnerId;
+    private Long ownerId;
   
     public Pet(String name, String breed, String gender,String notes, int age,
     		boolean adopted, double weight, double height, long ownerId) {
@@ -42,7 +37,7 @@ public class Pet {
 		this.adopted = adopted;
 		this.weight = weight;
 		this.height = height;
-		this.OwnerId = ownerId;
+		this.ownerId = ownerId;
 	}
 
 
@@ -101,7 +96,9 @@ public class Pet {
 
 	
 	public Long getOwnerId() {
-		return OwnerId;
+		return ownerId;
 	}
+	
+	Pet(){}
     
 }

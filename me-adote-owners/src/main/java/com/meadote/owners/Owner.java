@@ -40,4 +40,6 @@ public class Owner {
 		return password;
 	}
 	
+	Owner() {}
+	
 }
