@@ -6,9 +6,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class MeAdoteDiscoveryApplication {
+public class StartDiscoveryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MeAdoteDiscoveryApplication.class, args);
+		SpringApplication.run(StartDiscoveryApplication.class, args);
 	}
 }
