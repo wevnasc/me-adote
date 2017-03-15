@@ -1,1 +1,6 @@
 1489520106002	Rename resource 'application.properties'
+1489599633283	Rename type 'Configuration'
+1489599923697	Delete element
+1489600262415	Rename type 'CommentService'
+1489600480557	Rename field 'commentServiceClient'
+1489600520580	Delete element

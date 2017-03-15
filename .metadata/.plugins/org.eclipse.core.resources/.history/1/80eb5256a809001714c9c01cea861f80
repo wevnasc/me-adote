@@ -1,0 +1,16 @@
+package com.meadote.pets.comments;
+
+import java.util.List;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@FeignClient
+public interface CommentClient {
+	
+	@RequestMapping(value = "/comments/search/findByPetId?id={id}", method = GET)
+	List<Comment> findAll(@PathVariable("id") long id);
+	
+	
+}

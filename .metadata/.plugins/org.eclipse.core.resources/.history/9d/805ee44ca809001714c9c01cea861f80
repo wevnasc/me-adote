@@ -1,0 +1,14 @@
+package com.meadote.pets.comments;
+
+import java.util.List;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+
+@FeignClient
+public interface CommentClient {
+	
+	@RequestMapping(value = "/", method = GET)
+	List<Comment> hello();
+	
+	
+}

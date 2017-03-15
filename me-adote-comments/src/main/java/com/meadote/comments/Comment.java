@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Comment {
 
@@ -20,12 +18,10 @@ public class Comment {
 	
 	@NotNull
 	@Valid
-	@JsonIgnore
 	private long petId;
 	
 	@NotNull
 	@Valid
-	@JsonIgnore
 	private long ownerId;
 	
 	private String comment;
@@ -51,6 +47,14 @@ public class Comment {
 		return posted;
 	}
 	
+	public long getPetId() {
+		return petId;
+	}
+
+	public long getOwnerId() {
+		return ownerId;
+	}
+
 	Comment() {
 		this.posted = new Date().getTime();
 	}

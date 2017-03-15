@@ -1,0 +1,18 @@
+package com.meadote.pets;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+import com.meadote.pets.comments.CommentServiceClient;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients(basePackageClasses = CommentServiceClient.class)
+@ComponentScan(basePackageClasses = CommentServiceClient.class)
+public class StartPetsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StartPetsApplication.class, args);
+	}
+}

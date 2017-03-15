@@ -1,0 +1,32 @@
+package com.meadote.pets.comments;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+@Component
+public interface CommentService {
+	
+	@Autowired
+    private RestTemplate restTemplate;
+
+    public List<Comment> findAll(int id) {
+
+    	List<Comment> comments = restTemplate.exchange(
+                "http://comments/comments/search/findByPetId?petId={id}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<Comment>>() {
+                },
+                id).getBody();
+
+        return comments;
+
+    }
+	
+	
+}

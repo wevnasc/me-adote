@@ -1,0 +1,6 @@
+package com.meadote.pets.comments;
+
+@org.springframework.context.annotation.Configuration
+public class Configuration {
+
+}
