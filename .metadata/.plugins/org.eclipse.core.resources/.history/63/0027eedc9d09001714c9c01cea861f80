@@ -1,8 +1,0 @@
-package com.meadote.pets.comments;
-
-import org.springframework.cloud.netflix.feign.FeignClient;
-
-@FeignClient(value = "comments")
-public interface CommentServiceClient extends CommentService {
-
-}

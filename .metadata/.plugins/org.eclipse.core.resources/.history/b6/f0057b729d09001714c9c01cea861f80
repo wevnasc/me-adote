@@ -1,7 +1,0 @@
-package com.meadote.pets.comments;
-
-public interface CommentService {
-
-	
-	
-}
