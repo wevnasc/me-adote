@@ -1,0 +1,12 @@
+Configuração subrede dos container
+
+Criação da rede
+sudo docker network create --driver bridge me-adote
+
+
+Adição de Containers
+sudo docker run -p8888:8888 -itd --net me-adote --name config wnascimento/me-adote-config sh
+sudo docker run -p8761:8761 --net me-adote  --name discovery wnascimento/me-adote-discovery sh
+
+Visualização da rede criada
+docker network inspect me-adote
