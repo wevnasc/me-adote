@@ -1,0 +1,91 @@
+version: '2.1'
+networks:
+    me-adote:
+        driver: bridge
+services:
+    
+    config:
+        image: wnascimento/me-adote-config
+        restart: always
+        ports:
+            - 8888:8888
+        networks:
+            - me-adote
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:8888/info"]
+            interval: 1m30s
+            timeout: 10s
+            retries: 3
+
+    discovery:
+        image: wnascimento/me-adote-discovery
+        restart: always
+        ports:
+            - 8761:8761
+        links:
+            - config
+        depends_on:
+            config:
+                condition: service_healthy 
+        networks:
+            - me-adote
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:8761/info"]
+            interval: 1m30s
+            timeout: 10s
+            retries: 3
+
+    gateway:
+        image: wnascimento/me-adote-gateway
+        restart: always
+        ports:
+            - 9090:9090
+        links:
+            - config
+            - discovery
+        depends_on:
+            config:
+                condition: service_healthy
+            discovery:
+                condition: service_healthy
+        networks:
+            - me-adote
+    owners:
+        image: wnascimento/me-adote-owners
+        restart: always
+        links:
+            - config
+            - discovery
+        depends_on:
+            discovery:
+                condition: service_healthy
+            config:
+                condition: service_healthy
+        networks:
+            - me-adote
+    pets:
+        image: wnascimento/me-adote-pets
+        restart: always
+        links:
+            - config
+            - discovery
+        depends_on:
+            discovery:
+                condition: service_healthy
+            config:
+                condition: service_healthy
+        networks:
+            - me-adote
+    comments:
+        image: wnascimento/me-adote-comments
+        restart: always
+        links:
+            - config
+            - discovery
+        depends_on:
+            discovery:
+                condition: service_healthy
+            config:
+                condition: service_healthy
+        networks:
+            - me-adote

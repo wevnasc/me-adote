@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: comments
+  cloud:
+    config:
+      uri: http://config:8888
