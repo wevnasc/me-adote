@@ -1,5 +1,2 @@
-
-spring: 
-  cloud: 
-    client:
-      hostname: owners
+server:
+  port: 8081
