@@ -6,6 +6,7 @@ zuul:
   routes:
       owners:
         stripPrefix: false
+        url: http://owners:8081
       pets:
         stripPrefix: false
       comments:
