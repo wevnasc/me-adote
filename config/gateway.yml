@@ -9,7 +9,7 @@ zuul:
         url: http://owners:8081
       pets:
         stripPrefix: false
-        url: http://owners:8082
+        url: http://pets:8082
       comments:
         stripPrefix: false
-        url: http://owners:8083
+        url: http://comments:8083
