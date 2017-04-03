@@ -1,3 +1,5 @@
-eureka:
-  instance:
-    hostname: owners
+
+spring: 
+  cloud: 
+    client:
+      hostname: owners
