@@ -4,8 +4,8 @@ server:
 spring:
   jpa:
     hibernate:
-      dll-auto: create
+      dll-auto: update
   datasource:
-    url: jdbc:mysql://mysql:3306/me-adote
+    url: jdbc:mysql://ownersdb:3306/me-adote
     username: root
     password: root
