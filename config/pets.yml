@@ -1,2 +1,10 @@
 server:
   port: 8082
+spring:
+  jpa:
+    hibernate:
+      dll-auto: update
+  datasource:
+    url: jdbc:mysql://petsdb:3306/me-adote
+    username: root
+    password: root
