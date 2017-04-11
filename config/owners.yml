@@ -1,2 +1,11 @@
 server:
   port: 8081
+  
+spring:
+  jpa:
+    hibernate:
+      dll-auto: create
+  datasource:
+    url: jdbc:mysql://mysql:3306/me-adote
+    username: root
+    password: root
