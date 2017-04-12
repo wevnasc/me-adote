@@ -5,6 +5,6 @@ spring:
     hibernate:
       dll-auto: update
   datasource:
-    url: jdbc:mysql://petsdb:3306/me-adote
+    url: jdbc:mysql://petsdb:3306/pets_db
     username: root
     password: root
