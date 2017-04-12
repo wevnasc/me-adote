@@ -6,6 +6,6 @@ spring:
     hibernate:
       dll-auto: update
   datasource:
-    url: jdbc:mysql://ownersdb:3306/me-adote
+    url: jdbc:mysql://ownersdb:3306/owners_db
     username: root
     password: root
