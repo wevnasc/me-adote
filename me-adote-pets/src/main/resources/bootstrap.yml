@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: pets
-  cloud:
-    config:
-      uri: http://config:8888
