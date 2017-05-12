@@ -3,7 +3,7 @@ server:
 spring:
   jpa:
     hibernate:
-      dll-auto: update
+      ddl-auto: create-drop
   datasource:
     url: jdbc:mysql://petsdb:3306/pets_db
     username: root
