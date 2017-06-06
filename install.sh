@@ -37,13 +37,6 @@ echo 'install service owners'
 } &> /dev/null
 echo 'install service pets'
 
-{
-    cd me-adote-comments;
-    mvn clean install;
-    cd ..;
-} &> /dev/null
-echo 'install service comments'
-
 
 
 

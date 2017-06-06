@@ -33,10 +33,3 @@ echo 'created image docker owners'
     cd ..;
 } &> /dev/null
 echo 'created image docker pets'
-
-{
-    cd me-adote-comments;
-    sudo docker build -t wnascimento/me-adote-comments .;
-    cd ..;
-} &> /dev/null
-echo 'created image docker comments'
