@@ -14,9 +14,9 @@ O projeto e constituido por cinco serviços:
 
 - **me-adote-gateway:** Barramento ou porta de entrada para que os demais serviços sejam acessados
 
-- **me-adote-pets:** Regras de negocio relacionadas ao animas a serem adotados
+- **me-adote-pets:** Regras de negócio relacionadas ao animas a serem adotados
 
-- **me-adote-owners:** Regras de negocio relacionadas aos donos dos animas
+- **me-adote-owners:** Regras de negócio relacionadas aos donos dos animas
 
 ### Bibliotecas
 
